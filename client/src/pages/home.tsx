@@ -348,10 +348,8 @@ export default function Home() {
         )}
         </Card>
         
-        <p className="text-center text-sm text-muted-foreground font-mono mt-4">
-          <Link href="/faq" className="hover:text-primary transition-colors">
-            Read the FAQ for instructions
-          </Link>
+        <p className="text-center text-sm text-muted-foreground font-mono mt-6">
+          Read the <Link href="/faq" className="font-bold hover:text-primary transition-colors">FAQ</Link> for instructions
         </p>
       </div>
     </div>
