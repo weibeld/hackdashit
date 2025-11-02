@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Terminal, Shield, Lock } from "lucide-react";
+import { Link } from "wouter";
 
 export default function FAQ() {
   return (
@@ -42,6 +44,18 @@ export default function FAQ() {
               Yes, the process is absolutely safe. However, the overall safety depends on what URLs and IP addresses you hack, and what you do with them afterwards.
             </p>
           </Card>
+
+          <div className="flex justify-center pt-6">
+            <Link href="/">
+              <Button 
+                data-testid="button-start-hacking"
+                className="font-mono font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all px-8"
+              >
+                <Terminal className="w-5 h-5 mr-2" />
+                Start Hacking
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
