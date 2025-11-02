@@ -140,7 +140,7 @@ export default function Home() {
   const isInputEmpty = !currentInput.trim();
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+    <div className="flex-1 flex items-center justify-center bg-background p-4">
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: `repeating-linear-gradient(
@@ -153,7 +153,7 @@ export default function Home() {
         }} />
       </div>
 
-      <Card className="w-full max-width-[600px] max-w-[600px] p-8 md:p-12 relative overflow-visible border-2 shadow-[0_0_30px_rgba(34,119,105,0.3)]">
+      <Card className="w-full max-width-[600px] max-w-[600px] p-8 md:p-12 relative overflow-visible border-2 shadow-[0_0_30px_rgba(0,255,0,0.3)]">
         <div className="flex items-center justify-center mb-8 gap-3">
           <Terminal className="w-8 h-8 text-primary" />
           <h1 className="text-3xl md:text-4xl font-bold tracking-wider uppercase text-primary">
@@ -206,7 +206,7 @@ export default function Home() {
 
             {showValidationError && (
               <div className="text-sm text-destructive font-mono animate-in fade-in duration-200" data-testid="error-validation">
-                That's not a valid {activeTab === "url" ? "URL" : "IP address"}. Try again (e.g. {activeTab === "url" ? "https://example.com" : "192.168.1.1"})
+                That's not a valid {activeTab === "url" ? "URL" : "IP address"} (e.g. {activeTab === "url" ? "https://example.com" : "192.168.1.1"})
               </div>
             )}
 
@@ -219,7 +219,7 @@ export default function Home() {
               {isHacking ? (
                 <>
                   <Lock className="w-5 h-5 mr-2 animate-pulse" />
-                  Hacking in Progress...
+                  Hacking the {targetType === "url" ? "URL" : "IP address"}...
                 </>
               ) : (
                 <>
