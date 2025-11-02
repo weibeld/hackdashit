@@ -17,11 +17,11 @@ export default function NotFound() {
           </h1>
           
           <h2 className="text-2xl font-bold font-mono text-foreground uppercase tracking-wide">
-            Access Denied
+            Not Found
           </h2>
 
           <p className="text-lg text-muted-foreground font-mono max-w-md mx-auto">
-            ERROR: The requested URL does not exist in the system database.
+            The requested URL does not exist.
           </p>
 
           <p className="text-sm text-muted-foreground font-mono">
