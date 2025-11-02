@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { AlertTriangle } from "lucide-react";
+import { AlertTriangle, Terminal } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
@@ -34,6 +34,7 @@ export default function NotFound() {
                 data-testid="button-return-home"
                 className="font-mono font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all"
               >
+                <Terminal className="w-5 h-5 mr-2" />
                 Return to HackDaShit
               </Button>
             </Link>

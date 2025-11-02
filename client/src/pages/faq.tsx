@@ -21,7 +21,7 @@ export default function FAQ() {
               What does this tool do?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
-              This tool allows you to automatically hack any URL or IP address. No hacking knowledge needed.
+              This tool allows you to automatically hack any URL or IP address. No hacking experience needed.
             </p>
           </Card>
 
