@@ -21,7 +21,7 @@ export default function FAQ() {
               What does this tool do?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
-              This tool allows automatically hacking any URL or IP address. No hacking knowledge needed.
+              This tool allows you to automatically hack any URL or IP address. No hacking knowledge needed.
             </p>
           </Card>
 
@@ -31,17 +31,17 @@ export default function FAQ() {
               How do I hack a URL or IP address?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
-              Just type or paste the URL or IP address you want to hack, click the "Hack It" button, and wait. When the process completes, the URL or IP address will be hacked.
+              Just type or paste the URL or IP address you want to hack, click the "Hack It" button, and wait. When the process completes, the URL or IP address will be hacked!
             </p>
           </Card>
 
           <Card className="p-6 md:p-8 border-2">
             <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
               <Lock className="w-5 h-5" />
-              Is this safe?
+              Is it safe?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
-              Yes, the process is absolutely safe. However, the overall safety depends on what URLs and IP addresses you hack, and what you do with them afterwards.
+              Yes, the process is 100% safe. However, keep in mind that the overall safety depends on what URLs and IP addresses you hack, and what you do with them afterwards!
             </p>
           </Card>
 
