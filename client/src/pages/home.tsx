@@ -165,8 +165,22 @@ export default function Home() {
           <div className="space-y-6">
             <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
               <TabsList className="grid w-full grid-cols-2 mb-4">
-                <TabsTrigger value="url" data-testid="tab-url" disabled={isHacking}>URL</TabsTrigger>
-                <TabsTrigger value="ip" data-testid="tab-ip" disabled={isHacking}>IP Address</TabsTrigger>
+                <TabsTrigger 
+                  value="url" 
+                  data-testid="tab-url" 
+                  disabled={isHacking}
+                  className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
+                >
+                  URL
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="ip" 
+                  data-testid="tab-ip" 
+                  disabled={isHacking}
+                  className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
+                >
+                  IP Address
+                </TabsTrigger>
               </TabsList>
               
               <TabsContent value="url" className="space-y-2">
@@ -182,7 +196,7 @@ export default function Home() {
                   onChange={(e) => handleInputChange(e.target.value, "url")}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                  className="font-mono font-bold text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
                 />
               </TabsContent>
               
@@ -199,7 +213,7 @@ export default function Home() {
                   onChange={(e) => handleInputChange(e.target.value, "ip")}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                  className="font-mono font-bold text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
                 />
               </TabsContent>
             </Tabs>
@@ -214,7 +228,7 @@ export default function Home() {
               data-testid="button-hack"
               onClick={handleHack}
               disabled={isHacking || isInputEmpty}
-              className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(34,119,105,0.5)] hover:shadow-[0_0_30px_rgba(34,119,105,0.7)] transition-all"
+              className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all disabled:opacity-100 disabled:brightness-100"
             >
               {isHacking ? (
                 <>
@@ -223,7 +237,7 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <Shield className="w-5 h-5 mr-2" />
+                  <Terminal className="w-5 h-5 mr-2" />
                   Hack It
                 </>
               )}

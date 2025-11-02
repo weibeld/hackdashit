@@ -7,7 +7,7 @@ export default function Footer() {
             © {new Date().getFullYear()} HackDaShit. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground font-mono">
-            For entertainment purposes only.
+            For hackers only.
           </p>
         </div>
       </div>
