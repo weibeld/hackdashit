@@ -1,10 +1,6 @@
 # HackDaShit
 
-A playful hacker simulator entertainment website featuring a classic 1980s/1990s terminal aesthetic with bright green text on a black background.
-
-## What It Does
-
-Enter any URL or IP address, click the "Hack It" button, and watch an animated progress bar with terminal-style feedback simulate a hacking process. After 5-7 seconds, you'll receive a playful success message. It's pure entertainment - no actual hacking involved!
+A web-based tool for hacking arbitrary URLs and IP addresses.
 
 ## Tech Stack
 
@@ -16,6 +12,6 @@ Enter any URL or IP address, click the "Hack It" button, and watch an animated p
 - **[Wouter](https://github.com/molefrog/wouter)** for routing
 - **[Lucide React](https://lucide.dev/)** for icons
 
-## Built With
+## Coding Platform
 
-This project was built using **[Replit Agent](https://replit.com/products/agent)**.
+Built with **[Replit Agent](https://replit.com/products/agent)**.
