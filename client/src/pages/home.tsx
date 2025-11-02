@@ -166,8 +166,8 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-full max-w-[600px] flex flex-col items-center gap-6">
-        <Card className="w-full p-8 md:p-12 relative overflow-visible border-2 shadow-[0_0_30px_rgba(0,255,0,0.3)]">
+      <div className="w-full max-w-[600px] flex flex-col items-center">
+        <Card className="w-full p-8 md:p-12 mb-8 relative overflow-visible border-2 shadow-[0_0_30px_rgba(0,255,0,0.3)]">
         <div className="flex items-center justify-center mb-8 gap-3">
           <Terminal className="w-8 h-8 text-primary" />
           <h1 className="text-3xl md:text-4xl font-bold tracking-wider uppercase text-primary">
