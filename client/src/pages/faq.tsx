@@ -16,8 +16,8 @@ export default function FAQ() {
 
         <div className="space-y-6">
           <Card className="p-6 md:p-8 border-2">
-            <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-              <Terminal className="w-5 h-5" />
+            <h2 className="text-xl font-bold text-primary mb-3 flex items-start gap-2">
+              <Terminal className="w-5 h-5 flex-shrink-0" />
               What does this tool do?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
@@ -26,8 +26,8 @@ export default function FAQ() {
           </Card>
 
           <Card className="p-6 md:p-8 border-2">
-            <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-              <Lock className="w-5 h-5" />
+            <h2 className="text-xl font-bold text-primary mb-3 flex items-start gap-2">
+              <Lock className="w-5 h-5 flex-shrink-0" />
               How do I hack a URL or IP address?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
@@ -36,8 +36,8 @@ export default function FAQ() {
           </Card>
 
           <Card className="p-6 md:p-8 border-2">
-            <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-              <Shield className="w-5 h-5" />
+            <h2 className="text-xl font-bold text-primary mb-3 flex items-start gap-2">
+              <Shield className="w-5 h-5 flex-shrink-0" />
               Is it safe?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
