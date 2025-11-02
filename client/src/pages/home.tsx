@@ -202,7 +202,7 @@ export default function Home() {
               
               <TabsContent value="ip" className="space-y-2">
                 <label htmlFor="ip-input" className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Enter the <u></u>IP address you want to hack:
+                  Enter the <u>IP address</u> you want to hack:
                 </label>
                 <Input
                   id="ip-input"
