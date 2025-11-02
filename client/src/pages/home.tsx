@@ -169,7 +169,7 @@ export default function Home() {
                   value="url" 
                   data-testid="tab-url" 
                   disabled={isHacking}
-                  className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
+                  className="font-bold data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
                 >
                   URL
                 </TabsTrigger>
@@ -177,7 +177,7 @@ export default function Home() {
                   value="ip" 
                   data-testid="tab-ip" 
                   disabled={isHacking}
-                  className="data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
+                  className="font-bold data-[state=active]:bg-primary/20 data-[state=active]:text-primary"
                 >
                   IP Address
                 </TabsTrigger>
@@ -279,7 +279,7 @@ export default function Home() {
               <p className="text-lg text-foreground font-mono">
                 The {targetType === "url" ? "URL" : "IP address"} <span className="text-primary break-all font-bold" data-testid="text-hacked-url">{hackedTarget}</span> has been hacked.
               </p>
-              <p className="text-base text-muted-foreground font-mono pt-2">
+              <p className="text-base text-muted-foreground font-mono font-bold pt-2">
                 You know what do do now, don't you? ;)
               </p>
             </div>
@@ -287,8 +287,7 @@ export default function Home() {
             <Button
               data-testid="button-reset"
               onClick={handleReset}
-              variant="outline"
-              className="w-full h-12 font-bold uppercase tracking-wider border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all"
+              className="w-full h-12 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all"
             >
               Hack Another URL
             </Button>
