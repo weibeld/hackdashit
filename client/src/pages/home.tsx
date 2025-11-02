@@ -254,7 +254,7 @@ export default function Home() {
               data-testid="button-hack"
               onClick={handleHack}
               disabled={isHacking || isInputEmpty}
-              className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all disabled:opacity-100 disabled:brightness-100"
+              className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all disabled:opacity-100 disabled:brightness-100 mt-6"
             >
               {isHacking ? (
                 <>
@@ -274,7 +274,7 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-sm text-primary font-mono">
                   <Server className="w-4 h-4 animate-pulse" />
                   <span data-testid="text-status" className="animate-pulse">
-                    Hacking {hackedTarget}...
+                    Hacking <span className="font-bold">{hackedTarget}</span>...
                   </span>
                 </div>
 
@@ -337,7 +337,7 @@ export default function Home() {
             <Button
               data-testid="button-reset"
               onClick={handleReset}
-              className="w-full h-12 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all mt-6"
+              className="w-full h-12 font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all mt-8"
             >
               Hack Another {targetType === "url" ? "URL" : "IP Address"}
             </Button>
