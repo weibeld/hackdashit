@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Shield, Terminal, Lock, Database, Server, CheckCircle2 } from "lucide-react";
 
 const hackingStages = [
@@ -17,12 +18,15 @@ const hackingStages = [
 ];
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState("url");
   const [url, setUrl] = useState("");
+  const [ip, setIp] = useState("");
   const [isHacking, setIsHacking] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentStage, setCurrentStage] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
-  const [hackedUrl, setHackedUrl] = useState("");
+  const [hackedTarget, setHackedTarget] = useState("");
+  const [targetType, setTargetType] = useState<"url" | "ip">("url");
 
   useEffect(() => {
     if (!isHacking || isComplete) return;
@@ -61,9 +65,11 @@ export default function Home() {
   }, [isHacking, isComplete, currentStage]);
 
   const handleHack = () => {
-    if (!url.trim()) return;
+    const target = activeTab === "url" ? url : ip;
+    if (!target.trim()) return;
     
-    setHackedUrl(url);
+    setHackedTarget(target);
+    setTargetType(activeTab as "url" | "ip");
     setIsHacking(true);
     setIsComplete(false);
     setProgress(0);
@@ -72,10 +78,11 @@ export default function Home() {
 
   const handleReset = () => {
     setUrl("");
+    setIp("");
     setIsComplete(false);
     setProgress(0);
     setCurrentStage(0);
-    setHackedUrl("");
+    setHackedTarget("");
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -83,6 +90,9 @@ export default function Home() {
       handleHack();
     }
   };
+  
+  const currentInput = activeTab === "url" ? url : ip;
+  const isInputEmpty = !currentInput.trim();
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -108,27 +118,51 @@ export default function Home() {
 
         {!isComplete ? (
           <div className="space-y-6">
-            <div className="space-y-2">
-              <label htmlFor="url-input" className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                Enter the URL you want to hack:
-              </label>
-              <Input
-                id="url-input"
-                data-testid="input-url"
-                type="url"
-                placeholder="https://example.com"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                onKeyPress={handleKeyPress}
-                disabled={isHacking}
-                className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
-              />
-            </div>
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <TabsList className="grid w-full grid-cols-2 mb-4">
+                <TabsTrigger value="url" data-testid="tab-url" disabled={isHacking}>URL</TabsTrigger>
+                <TabsTrigger value="ip" data-testid="tab-ip" disabled={isHacking}>IP Address</TabsTrigger>
+              </TabsList>
+              
+              <TabsContent value="url" className="space-y-2">
+                <label htmlFor="url-input" className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Enter the URL you want to hack:
+                </label>
+                <Input
+                  id="url-input"
+                  data-testid="input-url"
+                  type="url"
+                  placeholder="https://example.com"
+                  value={url}
+                  onChange={(e) => setUrl(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  disabled={isHacking}
+                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                />
+              </TabsContent>
+              
+              <TabsContent value="ip" className="space-y-2">
+                <label htmlFor="ip-input" className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Enter the IP address you want to hack:
+                </label>
+                <Input
+                  id="ip-input"
+                  data-testid="input-ip"
+                  type="text"
+                  placeholder="192.168.1.1"
+                  value={ip}
+                  onChange={(e) => setIp(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  disabled={isHacking}
+                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                />
+              </TabsContent>
+            </Tabs>
 
             <Button
               data-testid="button-hack"
               onClick={handleHack}
-              disabled={isHacking || !url.trim()}
+              disabled={isHacking || isInputEmpty}
               className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(34,119,105,0.5)] hover:shadow-[0_0_30px_rgba(34,119,105,0.7)] transition-all"
             >
               {isHacking ? (
@@ -178,7 +212,7 @@ export default function Home() {
                 Congratulations!
               </h2>
               <p className="text-lg text-foreground font-mono">
-                The URL <span className="text-primary break-all font-bold" data-testid="text-hacked-url">{hackedUrl}</span> has been hacked.
+                The {targetType === "url" ? "URL" : "IP address"} <span className="text-primary break-all font-bold" data-testid="text-hacked-url">{hackedTarget}</span> has been hacked.
               </p>
               <p className="text-base text-muted-foreground font-mono pt-2">
                 You know what do do now, don't you? ;)
