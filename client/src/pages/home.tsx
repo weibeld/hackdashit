@@ -280,7 +280,7 @@ export default function Home() {
                 The {targetType === "url" ? "URL" : "IP address"} <span className="text-primary break-all font-bold" data-testid="text-hacked-url">{hackedTarget}</span> has been hacked.
               </p>
               <p className="text-base text-muted-foreground font-mono font-bold pt-2">
-                You know what do do now, don't you? ;)
+                You know what to do now, don't you? ;)
               </p>
             </div>
 
