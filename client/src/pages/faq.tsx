@@ -45,7 +45,7 @@ export default function FAQ() {
             </p>
           </Card>
 
-          <div className="flex justify-center pt-6">
+          <div className="flex justify-center pt-3">
             <Link href="/">
               <Button 
                 data-testid="button-start-hacking"
