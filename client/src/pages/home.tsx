@@ -55,6 +55,7 @@ export default function Home() {
   const [isComplete, setIsComplete] = useState(false);
   const [hackedTarget, setHackedTarget] = useState("");
   const [targetType, setTargetType] = useState<"url" | "ip">("url");
+  const [showValidationError, setShowValidationError] = useState(false);
 
   useEffect(() => {
     if (!isHacking || isComplete) return;
@@ -94,8 +95,14 @@ export default function Home() {
 
   const handleHack = () => {
     const target = activeTab === "url" ? url : ip;
-    if (!target.trim()) return;
+    const isValid = activeTab === "url" ? isValidUrl(url) : isValidIp(ip);
     
+    if (!isValid) {
+      setShowValidationError(true);
+      return;
+    }
+    
+    setShowValidationError(false);
     setHackedTarget(target);
     setTargetType(activeTab as "url" | "ip");
     setIsHacking(true);
@@ -111,6 +118,7 @@ export default function Home() {
     setProgress(0);
     setCurrentStage(0);
     setHackedTarget("");
+    setShowValidationError(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -119,10 +127,17 @@ export default function Home() {
     }
   };
   
+  const handleInputChange = (value: string, type: "url" | "ip") => {
+    if (type === "url") {
+      setUrl(value);
+    } else {
+      setIp(value);
+    }
+    setShowValidationError(false);
+  };
+
   const currentInput = activeTab === "url" ? url : ip;
   const isInputEmpty = !currentInput.trim();
-  const isValidInput = activeTab === "url" ? isValidUrl(url) : isValidIp(ip);
-  const showError = currentInput.trim() !== "" && !isValidInput;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -164,18 +179,11 @@ export default function Home() {
                   type="url"
                   placeholder="https://example.com"
                   value={url}
-                  onChange={(e) => setUrl(e.target.value)}
+                  onChange={(e) => handleInputChange(e.target.value, "url")}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className={`font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all ${
-                    activeTab === "url" && showError ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive" : ""
-                  }`}
+                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
                 />
-                {activeTab === "url" && showError && (
-                  <p className="text-sm text-destructive font-mono" data-testid="error-url">
-                    Please enter a valid URL (e.g., https://example.com)
-                  </p>
-                )}
               </TabsContent>
               
               <TabsContent value="ip" className="space-y-2">
@@ -188,25 +196,24 @@ export default function Home() {
                   type="text"
                   placeholder="192.168.1.1"
                   value={ip}
-                  onChange={(e) => setIp(e.target.value)}
+                  onChange={(e) => handleInputChange(e.target.value, "ip")}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className={`font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all ${
-                    activeTab === "ip" && showError ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive" : ""
-                  }`}
+                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
                 />
-                {activeTab === "ip" && showError && (
-                  <p className="text-sm text-destructive font-mono" data-testid="error-ip">
-                    Please enter a valid IP address (e.g., 192.168.1.1)
-                  </p>
-                )}
               </TabsContent>
             </Tabs>
+
+            {showValidationError && (
+              <div className="text-sm text-destructive font-mono animate-in fade-in duration-200" data-testid="error-validation">
+                That's not a valid {activeTab === "url" ? "URL" : "IP address"}. Try again (e.g. {activeTab === "url" ? "https://example.com" : "192.168.1.1"})
+              </div>
+            )}
 
             <Button
               data-testid="button-hack"
               onClick={handleHack}
-              disabled={isHacking || isInputEmpty || !isValidInput}
+              disabled={isHacking || isInputEmpty}
               className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(34,119,105,0.5)] hover:shadow-[0_0_30px_rgba(34,119,105,0.7)] transition-all"
             >
               {isHacking ? (
