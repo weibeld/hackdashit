@@ -14,4 +14,8 @@ A web-based tool for hacking arbitrary URLs and IP addresses.
 
 ## Coding Platform
 
-Built with **[Replit Agent](https://replit.com/products/agent)**.
+Built with [Replit Agent](https://replit.com/products/agent).
+
+## Deployment
+
+Deployed to [GitHub Pages](https://pages.github.com/) through [GitHub Actions](https://github.com/features/actions).
