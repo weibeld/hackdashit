@@ -220,7 +220,7 @@ export default function Home() {
 
             {showValidationError && (
               <div className="text-sm text-destructive font-mono animate-in fade-in duration-200" data-testid="error-validation">
-                That's not a valid {activeTab === "url" ? "URL" : "IP address"} (e.g. {activeTab === "url" ? "https://example.com" : "192.168.1.1"})
+                That's not a valid {activeTab === "url" ? "URL" : "IP address"} (use something like {activeTab === "url" ? "https://example.com" : "192.168.1.1"})
               </div>
             )}
 
