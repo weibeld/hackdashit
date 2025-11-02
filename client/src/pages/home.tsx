@@ -175,19 +175,11 @@ export default function Home() {
             
             <div className="space-y-3">
               <h2 className="text-2xl md:text-3xl font-bold uppercase text-primary tracking-wide" data-testid="text-success">
-                Hack Successful!
+                Congratulations!
               </h2>
               <p className="text-lg text-foreground font-mono">
-                Congratulations, the URL you entered has been hacked
+                The URL <span className="text-primary break-all" data-testid="text-hacked-url">{hackedUrl}</span> has been hacked.
               </p>
-              <div className="pt-2 pb-4">
-                <div className="inline-block bg-primary/10 border border-primary/30 rounded-md px-4 py-2">
-                  <p className="text-sm text-muted-foreground uppercase tracking-wide mb-1">Target</p>
-                  <p className="text-base font-mono text-primary break-all" data-testid="text-hacked-url">
-                    {hackedUrl}
-                  </p>
-                </div>
-              </div>
             </div>
 
             <Button
