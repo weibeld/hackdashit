@@ -27,7 +27,7 @@ export default function FAQ() {
 
           <Card className="p-6 md:p-8 border-2">
             <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-              <Shield className="w-5 h-5" />
+              <Lock className="w-5 h-5" />
               How do I hack a URL or IP address?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
@@ -37,7 +37,7 @@ export default function FAQ() {
 
           <Card className="p-6 md:p-8 border-2">
             <h2 className="text-xl font-bold text-primary mb-3 flex items-center gap-2">
-              <Lock className="w-5 h-5" />
+              <Shield className="w-5 h-5" />
               Is it safe?
             </h2>
             <p className="text-foreground font-mono leading-relaxed">
