@@ -7,8 +7,8 @@ export default function FAQ() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <div className="flex-1 container mx-auto px-4 py-12 max-w-4xl">
-        <div className="flex items-center gap-3 mb-8">
-          <Terminal className="w-8 h-8 text-primary" />
+        <div className="flex items-start gap-3 mb-8">
+          <Terminal className="w-8 h-8 text-primary flex-shrink-0" />
           <h1 className="text-3xl md:text-4xl font-bold uppercase text-primary tracking-wider">
             Frequently Asked Questions
           </h1>
