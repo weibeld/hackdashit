@@ -178,7 +178,10 @@ export default function Home() {
                 Congratulations!
               </h2>
               <p className="text-lg text-foreground font-mono">
-                The URL <span className="text-primary break-all" data-testid="text-hacked-url">{hackedUrl}</span> has been hacked.
+                The URL <span className="text-primary break-all font-bold" data-testid="text-hacked-url">{hackedUrl}</span> has been hacked.
+              </p>
+              <p className="text-base text-muted-foreground font-mono pt-2">
+                You know what do do now, don't you? ;)
               </p>
             </div>
 
