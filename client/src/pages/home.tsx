@@ -149,7 +149,7 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-sm text-primary font-mono">
                   <Server className="w-4 h-4 animate-pulse" />
                   <span data-testid="text-status" className="animate-pulse">
-                    {hackingStages[currentStage]?.message}
+                    Hacking...
                   </span>
                 </div>
 
@@ -162,21 +162,6 @@ export default function Home() {
                   <div className="flex justify-between text-xs font-mono text-muted-foreground">
                     <span>Progress</span>
                     <span data-testid="text-progress">{Math.round(progress)}%</span>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-3 gap-2 pt-2">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Database className="w-3 h-3" />
-                    <span>Accessing</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Lock className="w-3 h-3" />
-                    <span>Decrypting</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Server className="w-3 h-3" />
-                    <span>Infiltrating</span>
                   </div>
                 </div>
               </div>
