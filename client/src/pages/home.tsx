@@ -110,7 +110,7 @@ export default function Home() {
           <div className="space-y-6">
             <div className="space-y-2">
               <label htmlFor="url-input" className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                Enter the URL to hack
+                Enter the URL you want to hack:
               </label>
               <Input
                 id="url-input"
