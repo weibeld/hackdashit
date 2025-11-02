@@ -1,6 +1,6 @@
 # HackDaShit
 
-A playful hacker simulator entertainment website featuring a classic 1980s/1990s terminal aesthetic with bright green text on a black background.
+A web-based tool that can hack any URL or IP address.
 
 ## What It Does
 
