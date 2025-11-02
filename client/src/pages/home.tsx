@@ -166,7 +166,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="w-full max-w-[600px] flex flex-col items-center">
+      <div className="w-full max-w-[600px] flex flex-col items-center gap-6">
         <Card className="w-full p-8 md:p-12 relative overflow-visible border-2 shadow-[0_0_30px_rgba(0,255,0,0.3)]">
         <div className="flex items-center justify-center mb-8 gap-3">
           <Terminal className="w-8 h-8 text-primary" />
@@ -348,7 +348,7 @@ export default function Home() {
         )}
         </Card>
         
-        <p className="text-center text-sm text-muted-foreground font-mono mt-6">
+        <p className="text-center text-sm text-muted-foreground font-mono">
           Read the <Link href="/faq" className="font-bold hover:text-primary transition-colors">FAQ</Link> for instructions
         </p>
       </div>
