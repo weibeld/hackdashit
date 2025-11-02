@@ -17,6 +17,34 @@ const hackingStages = [
   { progress: 100, message: "Finalizing hack..." },
 ];
 
+const isValidUrl = (urlString: string): boolean => {
+  if (!urlString.trim()) return false;
+  try {
+    new URL(urlString);
+    return true;
+  } catch {
+    return false;
+  }
+};
+
+const isValidIp = (ipString: string): boolean => {
+  if (!ipString.trim()) return false;
+  // IPv4 pattern
+  const ipv4Pattern = /^(\d{1,3}\.){3}\d{1,3}$/;
+  // IPv6 pattern (simplified)
+  const ipv6Pattern = /^([\da-f]{1,4}:){7}[\da-f]{1,4}$/i;
+  
+  if (ipv4Pattern.test(ipString)) {
+    const parts = ipString.split('.');
+    return parts.every(part => {
+      const num = parseInt(part, 10);
+      return num >= 0 && num <= 255;
+    });
+  }
+  
+  return ipv6Pattern.test(ipString);
+};
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState("url");
   const [url, setUrl] = useState("");
@@ -93,6 +121,8 @@ export default function Home() {
   
   const currentInput = activeTab === "url" ? url : ip;
   const isInputEmpty = !currentInput.trim();
+  const isValidInput = activeTab === "url" ? isValidUrl(url) : isValidIp(ip);
+  const showError = currentInput.trim() !== "" && !isValidInput;
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
@@ -137,8 +167,15 @@ export default function Home() {
                   onChange={(e) => setUrl(e.target.value)}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                  className={`font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all ${
+                    activeTab === "url" && showError ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive" : ""
+                  }`}
                 />
+                {activeTab === "url" && showError && (
+                  <p className="text-sm text-destructive font-mono" data-testid="error-url">
+                    Please enter a valid URL (e.g., https://example.com)
+                  </p>
+                )}
               </TabsContent>
               
               <TabsContent value="ip" className="space-y-2">
@@ -154,15 +191,22 @@ export default function Home() {
                   onChange={(e) => setIp(e.target.value)}
                   onKeyPress={handleKeyPress}
                   disabled={isHacking}
-                  className="font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all"
+                  className={`font-mono text-base h-12 border-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary transition-all ${
+                    activeTab === "ip" && showError ? "border-destructive focus-visible:border-destructive focus-visible:ring-destructive" : ""
+                  }`}
                 />
+                {activeTab === "ip" && showError && (
+                  <p className="text-sm text-destructive font-mono" data-testid="error-ip">
+                    Please enter a valid IP address (e.g., 192.168.1.1)
+                  </p>
+                )}
               </TabsContent>
             </Tabs>
 
             <Button
               data-testid="button-hack"
               onClick={handleHack}
-              disabled={isHacking || isInputEmpty}
+              disabled={isHacking || isInputEmpty || !isValidInput}
               className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(34,119,105,0.5)] hover:shadow-[0_0_30px_rgba(34,119,105,0.7)] transition-all"
             >
               {isHacking ? (
