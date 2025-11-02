@@ -274,7 +274,7 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-sm text-primary font-mono">
                   <Server className="w-4 h-4 animate-pulse" />
                   <span data-testid="text-status" className="animate-pulse">
-                    Hacking...
+                    Hacking {hackedTarget}...
                   </span>
                 </div>
 
@@ -309,12 +309,24 @@ export default function Home() {
               </h2>
               <p className="text-lg text-foreground font-mono">
                 The {targetType === "url" ? "URL" : "IP address"}{" "}
-                <span
-                  className="text-primary break-all font-bold"
-                  data-testid="text-hacked-url"
-                >
-                  {hackedTarget}
-                </span>{" "}
+                {targetType === "url" ? (
+                  <a
+                    href={hackedTarget}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary break-all font-bold hover:underline"
+                    data-testid="text-hacked-url"
+                  >
+                    {hackedTarget}
+                  </a>
+                ) : (
+                  <span
+                    className="text-primary break-all font-bold"
+                    data-testid="text-hacked-url"
+                  >
+                    {hackedTarget}
+                  </span>
+                )}{" "}
                 has been hacked.
               </p>
               <p className="text-base text-muted-foreground font-mono font-bold pt-2">
