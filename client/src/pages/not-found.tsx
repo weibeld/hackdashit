@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center justify-center p-4">
+    <div className="flex-1 w-full flex flex-col items-center justify-center p-4">
       <Card className="w-full max-w-2xl border-2 border-primary/30 bg-black/80 backdrop-blur">
         <CardContent className="pt-12 pb-12 text-center space-y-6">
           <div className="flex justify-center mb-6">
