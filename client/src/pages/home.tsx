@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Link } from "wouter";
 import {
   Shield,
   Terminal,
@@ -345,6 +346,12 @@ export default function Home() {
           </div>
         )}
       </Card>
+      
+      <p className="text-center text-sm text-muted-foreground font-mono mt-4">
+        <Link href="/faq" className="hover:text-primary transition-colors">
+          Read the FAQ for instructions
+        </Link>
+      </p>
     </div>
   );
 }
