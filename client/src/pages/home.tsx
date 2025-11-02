@@ -256,7 +256,7 @@ export default function Home() {
               data-testid="button-hack"
               onClick={handleHack}
               disabled={isHacking || isInputEmpty}
-              className="w-full h-12 text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all disabled:opacity-100 disabled:brightness-100 mt-6"
+              className="w-full h-12 text-base md:text-lg font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,255,0,0.5)] hover:shadow-[0_0_30px_rgba(0,255,0,0.7)] transition-all disabled:opacity-100 disabled:brightness-100 mt-6"
             >
               {isHacking ? (
                 <>
