@@ -309,26 +309,21 @@ export default function Home() {
               >
                 Congratulations!
               </h2>
-              <p className="text-lg text-foreground font-mono">
-                The {targetType === "url" ? "URL" : "IP address"}{" "}
-                {targetType === "url" ? (
-                  <a
-                    href={hackedTarget}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary break-all font-bold hover:underline"
-                    data-testid="text-hacked-url"
-                  >
-                    {hackedTarget}
-                  </a>
-                ) : (
-                  <span
-                    className="text-primary break-all font-bold"
-                    data-testid="text-hacked-url"
-                  >
-                    {hackedTarget}
-                  </span>
-                )}{" "}
+              <p className="text-lg text-foreground font-mono mb-2">
+                The {targetType === "url" ? "URL" : "IP address"}
+              </p>
+
+              <div className="w-full bg-black/40 border-2 border-primary/50 rounded-lg p-6 shadow-[0_0_15px_rgba(0,255,0,0.1)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
+                <span
+                  className="relative text-primary break-all font-bold text-xl md:text-2xl tracking-wide"
+                  data-testid="text-hacked-url"
+                >
+                  {hackedTarget}
+                </span>
+              </div>
+
+              <p className="text-lg text-foreground font-mono mt-2 mb-6">
                 has been hacked.
               </p>
               <p className="text-base text-muted-foreground font-mono font-bold pt-2">
