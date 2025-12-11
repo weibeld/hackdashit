@@ -309,28 +309,31 @@ export default function Home() {
               >
                 Congratulations!
               </h2>
-              <p className="text-lg text-foreground font-mono">
-                The {targetType === "url" ? "URL" : "IP address"}{" "}
+              <p className="text-lg text-foreground font-mono mb-6">
+                The {targetType === "url" ? "URL" : "IP address"} has been hacked.
+              </p>
+
+              <div className="w-full bg-black/40 border-2 border-primary/50 rounded-lg p-6 shadow-[0_0_15px_rgba(0,255,0,0.1)] relative overflow-hidden group">
+                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                 {targetType === "url" ? (
                   <a
                     href={hackedTarget}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary break-all font-bold hover:underline"
+                    className="relative text-primary break-all font-bold hover:underline text-xl md:text-2xl tracking-wide"
                     data-testid="text-hacked-url"
                   >
                     {hackedTarget}
                   </a>
                 ) : (
                   <span
-                    className="text-primary break-all font-bold"
+                    className="relative text-primary break-all font-bold text-xl md:text-2xl tracking-wide"
                     data-testid="text-hacked-url"
                   >
                     {hackedTarget}
                   </span>
-                )}{" "}
-                has been hacked.
-              </p>
+                )}
+              </div>
               <p className="text-base text-muted-foreground font-mono font-bold pt-2">
                 You know what to do now, don't you? ;)
               </p>
